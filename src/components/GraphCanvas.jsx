@@ -20,6 +20,11 @@ export default function GraphCanvas({
   const cyRef = useRef(null);
 
   const nodeCount = Object.keys(graph?.nodes || {}).length;
+  const graphSignature = JSON.stringify({
+    nodes: Object.keys(graph?.nodes || {}).length,
+    edges: (graph?.edges || []).length,
+    nodeIds: Object.keys(graph?.nodes || {}).sort(),
+  });
 
   // Initialize and Update Cytoscape Graph
   useEffect(() => {
@@ -86,8 +91,8 @@ export default function GraphCanvas({
       });
       cy.layout(COSE_LAYOUT).run();
     }
-  }, [graph]);
-
+  }, [graphSignature]);
+  
   // Handle Search Filtering & Pinned Filtering
   useEffect(() => {
     const cy = cyRef.current;
