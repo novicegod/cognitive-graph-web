@@ -52,8 +52,7 @@ export default function HomePage() {
     return () => {
       unsubscribe();
     };
-  }, [selectedNode]);
-
+  }, []);
   const activeSession = stateData?.sessions && stateData?.activeSessionId
     ? stateData.sessions[stateData.activeSessionId]
     : null;
