@@ -376,7 +376,7 @@ export function buildCytoscapeElements(graph) {
         title: n.title || (isTopic ? `Topic: ${displayLabel}` : domain),
         url,
         type: isTopic ? "topic" : "page",
-        favicon: faviconUrl || "",
+        favicon: faviconUrl || "none",
         domain: domain,
         isStart: isStart,
         isEnd: isEnd,
